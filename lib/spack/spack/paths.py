@@ -50,7 +50,8 @@ packages_path      = os.path.join(repos_path, "builtin")
 mock_packages_path = os.path.join(repos_path, "builtin.mock")
 
 #: User configuration location
-user_config_path = os.path.expanduser('~/.spack')
+# Temporary hack around https://github.com/spack/spack/issues/11919 and https://github.com/spack/spack/issues/11972
+user_config_path = os.path.expandvars('${SPACK_USER_CONFIG}/.spack')
 user_bootstrap_path = os.path.join(user_config_path, 'bootstrap')
 user_bootstrap_store = os.path.join(user_bootstrap_path, 'store')
 
